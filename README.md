@@ -1,1 +1,1 @@
-# kubernetes-deplyoment
+# kubernetes-deployment
