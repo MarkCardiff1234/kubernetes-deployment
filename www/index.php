@@ -32,7 +32,7 @@
 				<h1>Hello World!</h1>
 				<h4>Attempting MySQL connection from php...</h4>
 				<?php
-				$host = 'db';
+				$host = 'db-service';
 				$user = 'root';
 				$pass = 'rootpassword';
 				$conn = new mysqli($host, $user, $pass);
