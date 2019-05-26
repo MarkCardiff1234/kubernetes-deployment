@@ -2,6 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nginx-deployment
+  labels:
+    app: nginx
 spec:
   selector:
     matchLabels:
@@ -12,17 +14,23 @@ spec:
       labels:
         app: nginx
     spec:
+      volumes:
+#      - name: www-disk
+ #       persistentVolumeClaim:
+  #        claimName: www-disk
+      - name: nginx-config
+        configMap:
+          name: confnginx
       containers:
       - name: nginx
-        image: markcardiff/nginxserver:v3
+        image: markcardiff/nginxserver:v4
         volumeMounts:
          - name: nginx-config
            mountPath: /etc/nginx/conf.d
-           subPath: default.conf
-      volumes:
-      - name: nginx-config
-        configMap:
-         name: confnginx
+#         - name: www-disk
+ #          mountPath: /usr/share/nginx/html
+        ports:
+         - containerPort: 80
 
 
 

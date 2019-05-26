@@ -9,7 +9,7 @@
 	<body>
 
 		<div class="header">
-  			<h1>THIS IS SERVER 0</h1>
+  			<h1>THIS IS SERVER 1</h1>
 		</div>
 
 		<div class="topnav">
@@ -32,7 +32,7 @@
 				<h1>Hello World!</h1>
 				<h4>Attempting MySQL connection from php...</h4>
 				<?php
-				$host = 'mysql';
+				$host = 'db';
 				$user = 'root';
 				$pass = 'rootpassword';
 				$conn = new mysqli($host, $user, $pass);
