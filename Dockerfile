@@ -1,3 +1,2 @@
-FROM php:7-fpm
+FROM nginx:latest
 COPY www /usr/share/nginx/html
-RUN docker-php-ext-install mysqli
