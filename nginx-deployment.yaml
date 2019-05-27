@@ -23,7 +23,7 @@ spec:
           name: confnginx
       containers:
       - name: nginx
-        image: markcardiff/nginxerver:v5
+        image: markcardiff/nginxserver:v4
         volumeMounts:
          - name: nginx-config
            mountPath: /etc/nginx/conf.d
