@@ -31,7 +31,11 @@ spec:
  #          mountPath: /usr/share/nginx/html
         ports:
          - containerPort: 80
-
+        # HTTP Health Check
+        livenessProbe:
+           httpGet:
+            path: /
+            port: 80
 
 
 
