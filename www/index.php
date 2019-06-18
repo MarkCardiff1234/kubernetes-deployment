@@ -13,8 +13,8 @@
 		</div>
 
 		<div class="topnav">
-  			<a href=info.php>PHP info</a>
-  			<a href="#" onclick="javascript:window.location.port=8080">Node app</a>
+			 <a href="index.php">Home</a>
+	 		 <a href="rss.php">RSS Reader App</a>
 
 		</div>
 

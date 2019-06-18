@@ -12,8 +12,16 @@ spec:
       labels:
         app: php
     spec:
+      volumes:
+#      - name: www
+#        hostPath:
+#          path: ./www
       containers:
       - name: php
-        image: markcardiff/php-fpm-mysqli:v2
+        image: markcardiff/php-fpm-mysqli:v3
+        imagePullPolicy: Always
+#        volumeMounts:
+#         - name: www
+#           mountPath: /usr/share/nginx/html
 #        ports:
  #     - containerPort: 9000

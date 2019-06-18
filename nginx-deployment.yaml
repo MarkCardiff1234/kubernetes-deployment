@@ -15,22 +15,26 @@ spec:
         app: nginx
     spec:
       volumes:
-#      - name: www-disk
- #       persistentVolumeClaim:
-  #        claimName: www-disk
       - name: nginx-config
         configMap:
           name: confnginx
+#      - name: www
+#        hostPath:
+#          path: /www
       containers:
       - name: nginx
-        image: markcardiff/nginxserver:v4
+        image: markcardiff/nginxserver:v6
+        imagePullPolicy: Always
         volumeMounts:
          - name: nginx-config
            mountPath: /etc/nginx/conf.d
-#         - name: www-disk
- #          mountPath: /usr/share/nginx/html
+#         - name: www
+#           mountPath: /usr/share/nginx/html
         ports:
-         - containerPort: 80
+         - name: http
+           containerPort: 80
+         - name: https
+           containerPort: 443
         # HTTP Health Check
         livenessProbe:
            httpGet:
