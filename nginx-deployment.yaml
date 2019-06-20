@@ -26,14 +26,15 @@ spec:
  # These containers are run during pod initialization
       initContainers:
       - name: install
-        image: busybox
+        image: alpine/git
         command:
         - "git"
         - "clone"
-        - "https://github.com/MarkCardiff1234/kubernetes-deployment.git"
+        - "https://github.com/MarkCardiff1234/www.git/"
+        - "/install"
         volumeMounts:
         - name: www
-          mountPath: "/kubernetes-deployment/www"
+          mountPath: "/install"
       containers:
       - name: nginx
 #        image: markcardiff/nginxserver:v6

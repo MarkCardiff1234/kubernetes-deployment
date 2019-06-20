@@ -9,7 +9,7 @@
 	<body>
 
 		<div class="header">
-  			<h1>THIS IS SERVER 1</h1>
+  			<h1>THIS IS A DEMO</h1>
 		</div>
 
 		<div class="topnav">
@@ -30,7 +30,9 @@
 			<div class="column middle">
 
 				<h1>Hello World!</h1>
-				<h4>Attempting MySQL connection from php...</h4>
+				<p>This website is running on Google Kubernetes Engine, using multiple pods 
+				deployed across a cluster. </p>
+				<h4>Attempting MySQL container connection from php...</h4>
 				<?php
 				$host = 'db';
 				$user = 'root';
@@ -39,7 +41,7 @@
 					if ($conn->connect_error) {
     						die("Connection failed: " . $conn->connect_error);
 					} 
-				echo "Connected to MySQL successfully!";
+				echo "Connected to MySQL container successfully!";
 				?>
 			</div>
   			<div class="column side">

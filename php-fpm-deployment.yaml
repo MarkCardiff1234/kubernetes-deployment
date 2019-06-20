@@ -13,15 +13,29 @@ spec:
         app: php
     spec:
       volumes:
+      - emptyDir: {}
+        name: www
 #      - name: www
 #        hostPath:
 #          path: ./www
+# These containers are run during pod initialization
+      initContainers:
+      - name: install
+        image: alpine/git:latest
+        command:
+        - "git"
+        - "clone"
+        - "https://github.com/MarkCardiff1234/www.git"
+        - "/install"
+        volumeMounts:
+        - name: www
+          mountPath: "/install"
       containers:
       - name: php
-        image: markcardiff/php-fpm-mysqli:v3
+        image: markcardiff/php-fpm-mysqli:v4
         imagePullPolicy: Always
-#        volumeMounts:
-#         - name: www
-#           mountPath: /usr/share/nginx/html
+        volumeMounts:
+         - name: www
+           mountPath: /usr/share/nginx/html
 #        ports:
  #     - containerPort: 9000
