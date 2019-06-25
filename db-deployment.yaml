@@ -18,9 +18,18 @@ spec:
         image: mysql:5.6.44
         env:
         - name: MYSQL_ROOT_PASSWORD
-          value: rootpassword
+          valueFrom:
+            secretKeyRef:
+              name: mysqlsecret
+              key: rootpassword
         - name: MYSQL_USER
-          value: admin
+          valueFrom:
+            secretKeyRef:
+              name: mysqlsecret
+              key: user
         - name: MY_SQL_PASSWORD
-          value: iamroot1
+          valueFrom:
+            secretKeyRef:
+              name: mysqlsecret
+              key: password
       restartPolicy: Always
