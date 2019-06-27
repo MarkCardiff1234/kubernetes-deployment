@@ -32,7 +32,7 @@
 				<h1>Hello World!</h1>
 				<p>This website is running on Google Kubernetes Engine, using multiple pods 
 				deployed across a cluster. </p>
-				<h4>Attempting MySQL container connection from php...</h4>
+				<h4>Attempting MySQL pod connection from php...</h4>
 				<?php
 				$host = 'db';
 				$user = 'root';

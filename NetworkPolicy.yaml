@@ -1,20 +1,20 @@
 #allow all
-apiVersion: networking.k8s.io/v1
-kind: NetworkPolicy
-metadata:
-  name: allow-all
-  namespace: default
-spec:
-  podSelector: {} 
-  ingress: 
-  - {}
-  policyTypes:
-  - Ingress
+#apiVersion: networking.k8s.io/v1
+#kind: NetworkPolicy
+#metadata:
+#  name: allow-all
+#  namespace: default
+#spec:
+#  podSelector: {} 
+#  ingress: 
+#  - {}
+#  policyTypes:
+#  - Ingress
 
 ---
 
-#kind: NetworkPolicy
 #apiVersion: networking.k8s.io/v1
+#kind: NetworkPolicy
 #metadata:
 #  name: default-deny-all
 #  namespace: default
@@ -23,29 +23,29 @@ spec:
 #  ingress: []
 
 ---
-
-#kind: NetworkPolicy
-#apiVersion: networking.k8s.io/v1
-#metadata:
-#  name: web-deny-all
-#spec:
-#  podSelector:
-#    matchLabels:
-#      app: db
-#  ingress: []
+#Policy to deny all access
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: web-deny-all
+spec:
+  podSelector:
+    matchLabels:
+      app: db
+  ingress: []
 
 ---
-
-#kind: NetworkPolicy
-#apiVersion: networking.k8s.io/v1
-#metadata:
-#  name: allow
-#spec:
-#  podSelector:
-#    matchLabels:
-#      app: db
-#  ingress:
-#  - from:
-#      - podSelector:
-#          matchLabels:
-#            app: php
+#Policy to allow the php pod to access the db pod
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow
+spec:
+  podSelector:
+    matchLabels:
+      app: db
+  ingress:
+  - from:
+      - podSelector:
+          matchLabels:
+            app: php
