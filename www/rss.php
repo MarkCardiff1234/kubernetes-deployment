@@ -20,7 +20,7 @@
 			<p> Last 5 RSS Posts from your subscribed feeds. </p>
 		</div>
 		<div class="Column middle">
-// connecting to database
+<!-- connecting to database -->
 	 <?php
 		$servername = "35.242.182.228";
 		$username = "admin";
@@ -47,7 +47,7 @@
 		}
 		$conn->close();
 		?>
-// displaying feed results
+<!-- displaying feed results-->
     <?php
         foreach ($feedurl as $value) {
 
