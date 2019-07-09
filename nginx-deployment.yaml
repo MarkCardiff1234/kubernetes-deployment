@@ -20,9 +20,6 @@ spec:
           name: confnginx
       - emptyDir: {}
         name: www
-#      - name: www
-#        hostPath:
-#          path: /www
  # These containers are run during pod initialization
       initContainers:
       - name: install

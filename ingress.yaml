@@ -4,6 +4,8 @@ metadata:
   name: "ingress-service"
   annotations: 
     nginx.ingress.kubernetes.io/rewrite-target: /$1
+    kubernetes.io/ingress.global-static-ip-name: 35.244.202.222
+    networking.gke.io/managed-certificates: certificate
   labels:
     # Timestamp used in order to force reload of the secret
     last_updated: "1494099933"
@@ -19,8 +21,4 @@ spec:
       - path: /?(.*)
         backend:
           serviceName: nginx-service
-          servicePort: 80
-      - path: /.well.known
-        backend:
-          serviceName: letsencrypt-service
           servicePort: 80
