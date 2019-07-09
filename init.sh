@@ -17,5 +17,5 @@ read -p "Have you created all necesary html/php files and placed them in the www
 echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
-    echo "kubectl apply stuff"
+    kubectl apply -f .
 fi

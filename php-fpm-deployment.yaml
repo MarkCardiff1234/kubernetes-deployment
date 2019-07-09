@@ -15,9 +15,6 @@ spec:
       volumes:
       - emptyDir: {}
         name: www
-#      - name: www
-#        hostPath:
-#          path: ./www
 # These containers are run during pod initialization
       initContainers:
       - name: install
@@ -37,5 +34,3 @@ spec:
         volumeMounts:
          - name: www
            mountPath: /usr/share/nginx/html
-#        ports:
- #     - containerPort: 9000
