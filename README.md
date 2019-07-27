@@ -9,6 +9,8 @@ Steps to deploy this project to Kubernetes
 2. Change the contents of the www folder to whatever php based web applications you need.
 3. kubectl apply all the containing yaml folders.
 
+Alternately simply run the inculded init.sh script which will check the requirements and deploy the containers.
+
 This will spin up an ingress controller, nginx pods, php pods and sql pods. 
 All of these pods have been configured to talk to each other.
 
@@ -18,5 +20,6 @@ files from whenever they are restarted.
 
 Included scripts:
 1. init.sh - checks that the system is connected and ready to deploy, before deploying all yaml files to the cluster
-2. restart.sh - restarts the nginx and php containers. do this whenever you wish to pdate the web files
-3. gitcommit.sh - allows for quicker and easer git commits. 
+2. restart.sh - restarts the nginx and php containers. do this whenever you wish to update the web files
+3. gitcommit.sh - allows for quicker and easier git commits. 
+
