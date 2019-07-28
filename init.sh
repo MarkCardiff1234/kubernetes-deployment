@@ -27,7 +27,12 @@ echo
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
     kubectl apply -f .
+    echo "succesfully deployed to Kubernetes"
+    echo "Public IP of the ingress can be found by running kubectl describe ing | grep Address"
+    echo "See below for IP, if not provisoned yet try again later"
+kubectl describe ing | grep Address
+
+
 else
     echo "aborting"
 fi
-    echo "succesfully deployed to Kubernetes"

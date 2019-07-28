@@ -13,6 +13,11 @@ Alternately simply run the inculded init.sh script which will check the requirem
 
 This will spin up an ingress controller, nginx pods, php pods and sql pods. 
 All of these pods have been configured to talk to each other.
+The pods are currently set to run 2 replicas of each.
+This can be changed by simply changing the humber under replica: found under the spc: sub heading in the respective yaml for the deployment.
+
+In order to find the IP of the ingress controller after deployment, run the command kubectl describe ing.
+It takes approx 10 minutes for the IP to be provisioned after deployement.
 
 The contents of the www folder should be setup as their own Git repo, and a link inserted to the 
 nginx-deployment.yaml and php-fpm-deployment.yaml files, as this will then be where the deployment will pull
